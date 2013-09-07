@@ -2,37 +2,31 @@ import java.io.IOException;
 
 public class Help {
     public static void main(String[] args) {
-        char choice = '0';
-        char ignore = ' ';
 
-        HelpDemo helpObj = new HelpDemo();
+            System.out.println("Help on:");
+            System.out.println("1. if");
+            System.out.println("2. switch");
+            System.out.println("Chose one: ");
 
-        for (;;) {
-            helpObj.showMenu();
-
-            do {
-                try {
-                    choice = (char) System.in.read();
-                }
-                catch (IOException e){
-                    System.out.println("Input error!");
-                }
-
-            } while ( helpObj.invalid(choice) );
-
-
-            if (choice == 'q') {
-                break;
+            char choice = ' ';
+            try {
+                choice = (char) System.in.read();
+            }
+            catch (IOException e){
+                System.out.println("Input error!");
             }
 
-            helpObj.showAnswer(choice);
-            choice = '0';
+            switch (choice){
+                case '1':
+                    System.out.println("The if: lalala");
+                    break;
+                case '2':
+                    System.out.println("The switch: lala");
+                    break;
+                default:
+                    System.out.println("Selection not found!");
 
-            System.out.println();
-        }
-
-
-
+            }
 
     }
 }
